@@ -10,7 +10,6 @@ void setup()
 {
 	example_init(&sc);
 	example_enter(&sc);
-	example_runCycle(&sc);
 	set_sleep_mode(SLEEP_MODE_IDLE);
 	sleep_enable();
 }
