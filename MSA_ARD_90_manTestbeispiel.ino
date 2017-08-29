@@ -3,7 +3,6 @@
 #include "src-gen/ManualExampleInterruptHandler.h"
 #include "avr/sleep.h"
 
-
 ManualExample sc;
 
 void setup()
@@ -15,7 +14,6 @@ void setup()
 	manualExample_runCycle(&sc);
 }
 
-// The loop function is called in an endless loop
 void loop()
 {
 	manualExample_InterruptHandler(&sc);
