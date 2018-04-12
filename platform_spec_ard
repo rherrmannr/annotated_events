@@ -1,0 +1,39 @@
+package platforms.arduino;
+
+sensor Button {
+	generator "com.yakindu.mita.platform.arduino.sensors.ButtonGenerator"
+	modality is_pressed : bool
+	event pressed
+	event released
+}
+
+sensor ADC {
+	generator "com.yakindu.mita.platform.arduino.sensors.ADCGenerator"
+	modality temperature : int32
+}
+
+enum LedColor {
+	Red,
+	Yellow,
+	Orange
+}
+
+connectivity named-singleton LED {
+	generator "com.yakindu.mita.platform.arduino.connectivity.LedGenerator"
+	validator "com.yakindu.mita.platform.arduino.connectivity.LedValidator"
+	
+	signal light_up(color : LedColor) : bool
+}
+
+alias button_one for Button
+alias button_two for Button
+
+alias environment for ADC
+
+platform Arduino {
+	has button_one
+	has button_two
+	has LED
+	has environment
+	event startup
+}
